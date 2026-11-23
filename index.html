@@ -14,6 +14,9 @@
 .productArt img{display:block!important;flex:0 1 auto!important;width:auto!important;height:100%!important;max-width:100%!important;max-height:185px!important;object-fit:contain!important;object-position:center!important}
 .product:hover .productArt img{transform:none!important}
 @media(max-width:600px){.productArt{height:190px!important}.productArt img{max-height:155px!important}}
+
+.productArt,.product:nth-child(n) .productArt{background:#fff!important}
+.productArt img{mix-blend-mode:normal!important}
 </style>
 </head>
 <body>
@@ -29,12 +32,12 @@
 // Product names, IDs, prices, and initial stock come from the provided Products table.
 // Stock reflects the example sale, receipt, and return transactions in the assignment.
 const products=[
-{id:1,sku:'pen01',name:'Ballpoint Pen',price:150,stock:51,category:'Writing',image:'ballpoint-pen.webp',description:'A reliable everyday ballpoint pen for clear notes, homework, and quick ideas.'},
-{id:2,sku:'pcl01',name:'Pencil',price:75,stock:58,category:'Writing',image:'pencil.webp',description:'A versatile pencil for sketching, solving problems, and drafting ideas.'},
-{id:3,sku:'ntb01',name:'Notebook',price:350,stock:40,category:'Paper',image:'notebook.webp',description:'Keep lecture notes, plans, and creative thoughts together in one handy notebook.'},
-{id:4,sku:'ers01',name:'Eraser',price:100,stock:39,category:'Accessories',image:'eraser.webp',description:'A handy eraser for tidying up pencil marks and making corrections.'},
-{id:5,sku:'hlt01',name:'Highlighter',price:200,stock:25,category:'Writing',image:'highlighter.webp',description:'Make key ideas stand out while reading, reviewing, and studying.'},
-{id:6,sku:'fld01',name:'Folder',price:125,stock:45,category:'Organization',image:'folder.webp',description:'Keep handouts, worksheets, and important papers neat and organized.'}
+{id:1,sku:'pen01',name:'Ballpoint Pen',price:150,stock:51,category:'Writing',image:'ballpoint-pen.png',description:'A reliable everyday ballpoint pen for clear notes, homework, and quick ideas.'},
+{id:2,sku:'pcl01',name:'Pencil',price:75,stock:58,category:'Writing',image:'pencil.png',description:'A versatile pencil for sketching, solving problems, and drafting ideas.'},
+{id:3,sku:'ntb01',name:'Notebook',price:350,stock:40,category:'Paper',image:'notebook.png',description:'Keep lecture notes, plans, and creative thoughts together in one handy notebook.'},
+{id:4,sku:'ers01',name:'Eraser',price:100,stock:39,category:'Accessories',image:'eraser.png',description:'A handy eraser for tidying up pencil marks and making corrections.'},
+{id:5,sku:'hlt01',name:'Highlighter',price:200,stock:25,category:'Writing',image:'highlighter.png',description:'Make key ideas stand out while reading, reviewing, and studying.'},
+{id:6,sku:'fld01',name:'Folder',price:125,stock:45,category:'Organization',image:'folder.png',description:'Keep handouts, worksheets, and important papers neat and organized.'}
 ];
 const money=c=>'$'+(c/100).toFixed(2);const cart=new Map();let filter='All',step='bag';const $=id=>document.getElementById(id);
 function renderFilters(){const cats=['All','Writing','Paper','Accessories','Organization'];$('filters').innerHTML=cats.map(c=>`<button class="filter ${filter===c?'active':''}" data-filter="${c}" aria-pressed="${filter===c}">${c}</button>`).join('');document.querySelectorAll('[data-filter]').forEach(b=>b.onclick=()=>{filter=b.dataset.filter;renderFilters();renderProducts()})}

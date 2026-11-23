@@ -9,6 +9,11 @@
 .store-preview{padding:40px 0 60px;text-align:center}.store-preview h2{font-size:clamp(26px,3vw,40px);margin:10px 0}.store-preview p{max-width:650px;margin:0 auto 22px;line-height:1.6}.store-preview img{display:block;width:100%;height:auto;border-radius:18px;box-shadow:0 14px 35px rgba(0,0,0,.10)}
 .productArt{overflow:hidden;background:#f6f3ef!important;height:190px;padding:24px 36px}.productArt img{width:100%;height:100%;object-fit:contain;display:block;transition:transform .25s}.product:hover .productArt img{transform:scale(1.025)}
 @media(max-width:760px){.productArt{height:170px;padding:20px 24px}}
+/* Fix product photos: prevent intrinsic square image from overflowing short card art area */
+.productArt{display:flex!important;align-items:center!important;justify-content:center!important;height:220px!important;padding:16px!important;overflow:hidden!important}
+.productArt img{display:block!important;flex:0 1 auto!important;width:auto!important;height:100%!important;max-width:100%!important;max-height:185px!important;object-fit:contain!important;object-position:center!important}
+.product:hover .productArt img{transform:none!important}
+@media(max-width:600px){.productArt{height:190px!important}.productArt img{max-height:155px!important}}
 </style>
 </head>
 <body>
